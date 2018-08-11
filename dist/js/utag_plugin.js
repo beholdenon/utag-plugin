@@ -162,8 +162,13 @@ window.bl = window.bl || {};
     // method to fire tags (cat is optional)
     function fireTag(type, params) {
         if(checkTag(type, params)) {
-            log("fireTag: Type: " + type + " Params: " + JSON.stringify(params));
-            window.utag[type](params);
+            try {
+                log("fireTag: Type: " + type + " Params: " + JSON.stringify(params));
+                window.utag[type](params);
+            }
+            catch(e) {
+                log("Error: Unable to call fireTag: type: " + type);
+            }
         }
     }
 
