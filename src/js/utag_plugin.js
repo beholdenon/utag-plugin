@@ -107,7 +107,7 @@ window.bl = window.bl || {};
             forEach(el, function (index, value) {
                 value.onclick = function(){
                     fireTag("link", {
-                        event_name: value.getAttribute("utag")
+                        "event_name": value.getAttribute("utag")
                     });
                 };
             });
@@ -121,8 +121,8 @@ window.bl = window.bl || {};
             var page = options.page_paths[path()];
             if(page !== undefined) {
                fireTag("view", {
-                    page_type: "marketing",
-                    page_name: page
+                    "page_type": "marketing",
+                    "page_name": page
                 });
             }
         }
