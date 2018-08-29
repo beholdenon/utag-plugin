@@ -9,7 +9,7 @@
 <body>
     <a href="#" utag="test-link-click">Test Link</a>
     <br><br>
-    <a href="#" utag="test-link-click2">Test Link</a>
+    <a href="#" utag="test-link-click2" other-element="test2">Test Link</a>
 
     <script>
         /* testing hack so application initiates library */
@@ -27,6 +27,7 @@
         var adobeTag = bl.utag;
         adobeTag.init({
             use_attribute_tags: true,
+            attribute_tag: "other-element",
             page_paths: {
                 "": "landing-page"
             }
