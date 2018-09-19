@@ -32,7 +32,10 @@ window.bl = window.bl || {};
         call_page_tags: true,
 
         // use html attributes for element tags
-        use_attribute_tags: true
+        use_attribute_tags: true,
+
+        // the name of the attribute tags
+        attribute_tag: "utag"
     };
 
     // private method to combine defaults and options
@@ -102,17 +105,16 @@ window.bl = window.bl || {};
     // setup
     function initAttributeListener() {
         if(options.use_attribute_tags) {
-            var el = document.querySelectorAll("[utag]");
+            var el = document.querySelectorAll("[" + options.attribute_tag + "]");
 
             forEach(el, function (index, value) {
                 value.onclick = function(){
                     fireTag("link", {
-                        "event_name": value.getAttribute("utag")
+                        "event_name": value.getAttribute(options.attribute_tag)
                     });
                 };
             });
         }
-        
     }
 
     // setup page id's firing on page load
